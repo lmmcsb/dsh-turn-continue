@@ -1,0 +1,60 @@
+{
+  "name": "dsh-turn-continue",
+  "version": "0.1.0",
+  "description": "Auto-continue a stalled DSH turn: re-prompts after an empty turn, a max-tokens cutoff or a listed model error, and fails over to a healthy backup route before retrying.",
+  "type": "module",
+  "license": "MIT",
+  "author": "lmmcsb",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "session",
+    "auto-continue",
+    "failover"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lmmcsb/dsh-turn-continue.git"
+  },
+  "homepage": "https://github.com/lmmcsb/dsh-turn-continue#readme",
+  "bugs": {
+    "url": "https://github.com/lmmcsb/dsh-turn-continue/issues"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  },
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "lib",
+    "locale",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/schemastery": ">=3.18.0 <4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/schemastery": {
+      "optional": true
+    }
+  }
+}

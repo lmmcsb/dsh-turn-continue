@@ -1,0 +1,4 @@
+# dsh-turn-continue bundle：把会话守护插进当前 profile 的插件列表
+- insert:
+    - id: turn-continue
+      name: dsh-turn-continue

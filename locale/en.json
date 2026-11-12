@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Session Guard",
+    "description": "Keeps a session moving when it stalls, and fails over to a backup model before retrying."
+  }
+}
